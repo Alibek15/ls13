@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="default">
+        <!-- Persistance provider-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider><!--Указываем в системе через какой
+        провайдер мы работаем с бд, по скольку у нас JPA то ее мы и указываем-->
+
+        <!--Указываем класс который будем мапить-->
+        <!--Entity Classes -->
+
+        <class>org.alibek.ls13.entity.Student</class>
+
+        <properties>
+            <!--JDBC DRIVER-->
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <!--JDBC URL-->
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <!--JDBC USERNAME-->
+            <property name="hibernate.connection.username" value="postgres"/>
+            <!--JDBC PASSWORD-->
+            <property name="hibernate.connection.password" value="postgres"/>
+
+            <!--Show SQL in Logs-->
+            <property name="show_sql" value="true"/> <!--Все sql запросы покащывались в логах, но не отправлять в прод
+            потому что будет отображать все sql запросы-->
+        </properties>
+    </persistence-unit>
+</persistence>
